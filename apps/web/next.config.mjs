@@ -49,7 +49,10 @@ const getUniqueValues = (values) => [...new Set(values.filter(Boolean))];
 
 const nextConfig = {
   assetPrefix: process.env.ASSET_PREFIX_URL || undefined,
-  allowedDevOrigins: process.env.NODE_ENV === "production" ? undefined : LOOPBACK_HOSTS,
+  allowedDevOrigins: process.env.NODE_ENV === "production" ? undefined : [
+    ...LOOPBACK_HOSTS,
+    ...(process.env.BASE44_PUBLIC_HOST_SUFFIX ? [`3000-${process.env.BASE44_PUBLIC_HOST_SUFFIX}`] : []),
+  ],
   basePath: process.env.BASE_PATH || undefined,
   output: "standalone",
   poweredByHeader: false,

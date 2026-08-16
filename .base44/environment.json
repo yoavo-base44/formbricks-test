@@ -1,0 +1,6 @@
+{
+  "healthPath": "/",
+  "previewPort": 3000,
+  "secrets": [],
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d"
+}
